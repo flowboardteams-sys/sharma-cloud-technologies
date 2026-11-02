@@ -1,3 +1,4 @@
+import { useState } from "react";
 import cardSoftware from "@/assets/card-software.jpg";
 import cardMobile from "@/assets/card-mobile.jpg";
 import cardAi from "@/assets/card-ai.jpg";
@@ -388,8 +389,6 @@ export function Faq() {
     </section>
   );
 }
-
-import { useState } from "react";
 
 function FaqItem({ q, a, defaultOpen = false }: { q: string; a: string; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);

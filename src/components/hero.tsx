@@ -30,7 +30,7 @@ export function Hero() {
           className="max-w-3xl font-display text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
         />
 
-        <p className="reveal is-visible mt-8 max-w-xl text-base leading-relaxed text-foreground/80 sm:text-lg [animation-delay:600ms]">
+        <p className="fade-in-late mt-8 max-w-xl text-base leading-relaxed text-foreground/80 sm:text-lg">
           Sharma Cloud Technologies designs and builds custom software, mobile apps and
           intelligent AI agents that automate your business and accelerate growth.
         </p>

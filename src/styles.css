@@ -191,6 +191,11 @@
   animation: sct-word-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+.fade-in-late {
+  opacity: 0;
+  animation: sct-word-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
+}
+
 .float-slow {
   animation: sct-float 6s ease-in-out infinite;
 }
