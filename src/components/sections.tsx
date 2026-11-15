@@ -7,6 +7,7 @@ import featMobile from "@/assets/feat-mobile.jpg";
 import featAi from "@/assets/feat-ai.jpg";
 import featCloud from "@/assets/feat-cloud.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
+import heroBgLight from "@/assets/hero-bg-light.jpg";
 import { Counter, Reveal, WordReveal } from "@/components/reveal";
 import { Logo } from "@/components/site-header";
 
@@ -272,7 +273,7 @@ export function Capabilities() {
       <div className="mt-14">
         {CAPABILITIES.map((c, i) => (
           <Reveal key={c.n} delay={i * 60}>
-            <div className="group grid grid-cols-[auto_1fr] items-baseline gap-5 border-b border-border px-2 py-7 transition-colors hover:bg-white/5 sm:grid-cols-[auto_1fr_1.2fr] sm:items-center sm:gap-10 sm:px-6">
+            <div className="group grid grid-cols-[auto_1fr] items-baseline gap-5 border-b border-border px-2 py-7 transition-colors hover:bg-muted/70 sm:grid-cols-[auto_1fr_1.2fr] sm:items-center sm:gap-10 sm:px-6">
               <span className="font-display text-xl font-bold text-flame/70 transition-colors group-hover:text-flame sm:text-2xl">
                 {c.n}
               </span>
@@ -439,16 +440,25 @@ export function CtaFooter() {
               width={1920}
               height={1080}
               loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover"
+              className="cta-bg-dark absolute inset-0 h-full w-full object-cover"
               aria-hidden="true"
             />
-            <div className="absolute inset-0 bg-[oklch(0.12_0.03_290/0.62)]" />
+            <img
+              src={heroBgLight}
+              alt=""
+              width={1920}
+              height={1080}
+              loading="lazy"
+              className="cta-bg-light absolute inset-0 h-full w-full object-cover"
+              aria-hidden="true"
+            />
+            <div className="cta-shade absolute inset-0" />
             <div className="relative">
               <WordReveal
                 as="h2"
                 step={60}
                 text="Elevate your business with our AI-powered solutions"
-                className="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight sm:text-5xl"
+                className="cta-title mx-auto max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight text-hero-foreground sm:text-5xl"
               />
               <a
                 href="mailto:info@sharmacloud.in"
