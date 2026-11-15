@@ -32,6 +32,23 @@ export function Logo() {
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [lightMode, setLightMode] = useState(false);
+
+  useEffect(() => {
+    const savedMode = window.localStorage.getItem("sct-color-mode");
+    const shouldUseLight = savedMode === "light";
+    setLightMode(shouldUseLight);
+    document.documentElement.classList.toggle("light", shouldUseLight);
+    document.documentElement.classList.toggle("dark", !shouldUseLight);
+  }, []);
+
+  const toggleColorMode = () => {
+    const nextLightMode = !lightMode;
+    setLightMode(nextLightMode);
+    document.documentElement.classList.toggle("light", nextLightMode);
+    document.documentElement.classList.toggle("dark", !nextLightMode);
+    window.localStorage.setItem("sct-color-mode", nextLightMode ? "light" : "dark");
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -43,7 +60,7 @@ export function SiteHeader() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "border-b border-border bg-background/85 backdrop-blur-xl" : "bg-transparent"
+        scrolled ? "border-b border-border bg-background/90 backdrop-blur-xl" : "bg-background/80 backdrop-blur-xl"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 lg:px-8">
@@ -57,7 +74,7 @@ export function SiteHeader() {
               className={`rounded-full px-5 py-2.5 font-display text-sm font-semibold tracking-wide transition-colors ${
                 i === 0
                   ? "bg-foreground text-background"
-                  : "text-foreground/75 hover:bg-white/10 hover:text-foreground"
+                  : "text-foreground/75 hover:bg-muted/70 hover:text-foreground"
               }`}
             >
               {item.label}
@@ -66,6 +83,24 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={toggleColorMode}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-input text-foreground transition-colors hover:bg-muted"
+            aria-label={lightMode ? "Switch to dark mode" : "Switch to light mode"}
+            title={lightMode ? "Switch to dark mode" : "Switch to light mode"}
+          >
+            {lightMode ? (
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20.2 15.2A8.4 8.4 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            ) : (
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
+                <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+              </svg>
+            )}
+          </button>
           <a
             href="#contact"
             className="hidden rounded-full border border-input px-6 py-2.5 font-display text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background sm:inline-block"
@@ -93,7 +128,7 @@ export function SiteHeader() {
               key={item.label}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block rounded-xl px-4 py-3 font-display text-base font-semibold text-foreground/85 hover:bg-white/5"
+              className="block rounded-xl px-4 py-3 font-display text-base font-semibold text-foreground/85 hover:bg-muted/70"
             >
               {item.label}
             </a>

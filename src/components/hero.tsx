@@ -27,10 +27,10 @@ export function Hero() {
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-5 pb-28 pt-36 lg:px-8">
         <WordReveal
           text="Software, Apps & AI Agents Built for Modern Businesses"
-          className="max-w-3xl font-display text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
+          className="max-w-3xl font-display text-4xl font-bold leading-[1.08] tracking-tight text-hero-foreground sm:text-6xl lg:text-7xl"
         />
 
-        <p className="fade-in-late mt-8 max-w-xl text-base leading-relaxed text-foreground/80 sm:text-lg">
+        <p className="fade-in-late mt-8 max-w-xl text-base leading-relaxed text-hero-foreground/80 sm:text-lg">
           Sharma Cloud Technologies designs and builds custom software, mobile apps and
           intelligent AI agents that automate your business and accelerate growth.
         </p>
