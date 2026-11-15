@@ -1,4 +1,5 @@
 import heroBg from "@/assets/hero-bg.jpg";
+import heroBgLight from "@/assets/hero-bg-light.jpg";
 import featMobile from "@/assets/feat-mobile.jpg";
 import { WordReveal } from "@/components/reveal";
 
@@ -18,10 +19,18 @@ export function Hero() {
         alt=""
         width={1920}
         height={1080}
-        className="hero-bg absolute inset-0 h-full w-full object-cover"
+        className="hero-bg hero-bg-dark absolute inset-0 h-full w-full object-cover transition-opacity duration-500"
         aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.12_0.03_290/0.72)] via-[oklch(0.12_0.03_290/0.28)] to-transparent" />
+      <img
+        src={heroBgLight}
+        alt=""
+        width={1920}
+        height={1080}
+        className="hero-bg hero-bg-light absolute inset-0 h-full w-full object-cover transition-opacity duration-500"
+        aria-hidden="true"
+      />
+      <div className="hero-shade absolute inset-0" />
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-5 pb-28 pt-36 lg:px-8">
