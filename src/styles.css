@@ -139,7 +139,43 @@
   --sky: oklch(0.58 0.11 230);
   --flame: oklch(0.66 0.17 50);
   --lav: oklch(0.56 0.08 290);
-  --hero-foreground: oklch(0.985 0 0);
+  --hero-foreground: oklch(0.2 0.025 255);
+}
+
+.hero-bg-light,
+.cta-bg-light {
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.hero-shade {
+  background:
+    linear-gradient(to right, oklch(0.12 0.03 290 / 0.72), oklch(0.12 0.03 290 / 0.28) 55%, transparent),
+    linear-gradient(to top, var(--background), transparent 10%);
+}
+
+.cta-shade {
+  background: oklch(0.12 0.03 290 / 0.62);
+}
+
+.light .hero-bg-dark,
+.light .cta-bg-dark {
+  opacity: 0;
+}
+
+.light .hero-bg-light,
+.light .cta-bg-light {
+  opacity: 1;
+}
+
+.light .hero-shade {
+  background:
+    linear-gradient(to right, oklch(0.98 0.006 95 / 0.88), oklch(0.98 0.006 95 / 0.52) 53%, transparent),
+    linear-gradient(to top, var(--background), transparent 10%);
+}
+
+.light .cta-shade {
+  background: oklch(0.98 0.006 95 / 0.32);
 }
 
 @theme {
